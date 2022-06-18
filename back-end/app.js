@@ -8,6 +8,7 @@ app.use([cors(), express.json()]);
 const users = [];
 const tweets = [];
 
+//SIGN-UP
 app.get("/sign-up", (req, res) => {
   res.send(users);
 });
@@ -20,8 +21,22 @@ app.post("/sign-up", (req, res) => {
   res.send("OK");
 });
 
+//TWEETS
 app.get("/tweets", (req, res) => {
   res.send(tweets);
+});
+
+app.post("/tweets", (req, res) => {
+  const { avatar } = users[users.length - 1];
+  const tweet = req.body;
+  tweet.avatar = avatar;
+
+  tweets.unshift(tweet);
+  if (tweets.length > 10) {
+    tweets.pop();
+  }
+
+  res.send("OK");
 });
 
 app.listen(5000, () => {
