@@ -5,12 +5,15 @@
   "description": "back end do tweteroo",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Arthur Alcantara",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^5.0.1",
     "cors": "^2.8.5",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16"
   }
 }
